@@ -1,23 +1,35 @@
-/*var LinkedList = (function(){
+/*
+ * Two patterns for creating a constructor with private members
+ * 
+
+function LinkedList(){
+	var that = {}				//return object	
+	  , _foo = "private foo";
 	
-	//private variables
-	var root = 10;
+	that.getFoo = function (){
+		return _foo;
+	}
+	
+	return that;
+};
+
+function LinkedList(){
+	var _foo = "private foo";
 	
 	return {
-		add: function(){
-			console.log('hi');
-		},
-		init: function(){
-			console.log(root);
+		getFoo : function (){
+			return _foo;
 		}
-	};
-}());*/
+	}
+};*/
 
 var LinkedList = function(){
+	//private variables
+	var _root = 10;
+	
 	return {
-		add: function(){
-			console.log('add invoked');
-			
+		getFoo: function(){
+			return root;
 		}
 	};
 };
