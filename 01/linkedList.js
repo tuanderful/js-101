@@ -29,7 +29,7 @@ var LinkedList = function(){
 	
 	return {
 		getFoo: function(){
-			return root;
+			return _root;
 		}
 	};
 };
