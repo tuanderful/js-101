@@ -25,19 +25,49 @@ function LinkedList(){
 	}
 };*/
 
+function Node( init ) {
+	this.value = init;
+	this.next = null;
+}
 
 function LinkedList() {
 	//private variables
-	var _root = 10;
-
-	//public method
-	this.getFoo = function () {
-		return _root;
+	var _root = null;
+	var _length = 0;
+	
+	return {
+		root: _root,
+		length: function () {
+			return _length;
+		},
+		insert: function (node) {
+			//console.log(node);
+			//console.log(_root);
+			//console.log(_root.next);
+			if (_root === null) {
+				_root = node;
+			}
+			
+			_length++;
+			console.log(_root.next);
+			
+			var itr = _root;
+			
+			while (itr.next !== null) {
+				itr = itr.next;
+			}		
+		}
 	};
 }
 
+
+
 var linkedList = new LinkedList();
 
-LinkedList.prototype.getBar = function (price) {
-	console.log("hi");
-};
+console.log(linkedList.length());
+
+var n = new Node(5);
+linkedList.insert( n );
+
+
+window.setInterval( console.log(linkedList) ,5000);
