@@ -1,0 +1,10 @@
+{
+  "name": "js-101",
+  "version": "0.0.0",
+  "description": "JS 101 Code Samples",
+  "author": "Tuan Huynh <holler@tuanhuynh.com>",
+  "dependencies": {
+    "mocha": "1.17.x"
+  },
+  "engine": "node >= 0.10.26"
+}
