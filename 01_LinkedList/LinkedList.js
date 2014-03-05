@@ -25,9 +25,6 @@ LinkedList.prototype.insert = function(val) {
   if (this.isEmpty()) {
     this.head = newNode;
   } else {
-    // should probably use null instead of undefined.
-    // this will allow us to set next to null after destroying a node,
-    // rather than setting it to undefined.
     while (pointer.next !== null) {
       pointer = pointer.next;
     }
@@ -35,6 +32,26 @@ LinkedList.prototype.insert = function(val) {
   }
 
   this.length++;
+
+  return this;                         // for chaining
 }
+
+LinkedList.prototype.remove = function() {
+
+}
+
+LinkedList.prototype.valueOf = function() {
+  var arrayRepresentation = [],
+      pointer = this.head;
+
+  while (pointer !== null) {
+    arrayRepresentation.push(pointer.val);
+    pointer = pointer.next;
+  }
+
+  return arrayRepresentation;
+}
+
+
 
 module.exports = LinkedList;
