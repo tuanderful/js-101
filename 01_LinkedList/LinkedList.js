@@ -2,7 +2,7 @@ function Node(value) {
   return {
     val: value,
     next: null
-  }
+  };
 }
 
 function LinkedList(val) {
@@ -16,42 +16,66 @@ function LinkedList(val) {
 
 LinkedList.prototype.isEmpty = function() {
   return this.head === null;
-}
+};
 
 LinkedList.prototype.insert = function(val) {
   var newNode = new Node(val),
-      pointer = this.head;
+      cursor = this.head;
 
   if (this.isEmpty()) {
     this.head = newNode;
   } else {
-    while (pointer.next !== null) {
-      pointer = pointer.next;
+    while (cursor.next !== null) {
+      cursor = cursor.next;
     }
-    pointer.next = newNode;
+    cursor.next = newNode;
   }
 
   this.length++;
 
   return this;                         // for chaining
-}
+};
 
-LinkedList.prototype.remove = function() {
+LinkedList.prototype.remove = function(val) {
+  var cursor = this.head,
+      previous = null;
 
-}
+  console.log('Looking for ' + val);
 
-LinkedList.prototype.valueOf = function() {
+  if (this.isEmpty()) {                // No items in list
+    return this;
+  } else if (cursor.val === val) {     // first item in list
+    // TODO
+  } else {
+    while (cursor.next !== null && cursor.next.val !== val) {
+      cursor = cursor.next;
+    }
+    // fall out of the loop if next is null (you are at the end),
+    // or the next one is the val (cursor is pointing to previous)
+    if (cursor.next === null) {
+      console.log('-- end of list, item not found');
+    } else {
+      if (cursor.next.next === null) {
+        console.log('-- no element after the needle');
+        cursor.next = null;
+      } else { //(cursor.next.next !== null)
+        console.log('-- element after the needle');
+        cursor.next = cursor.next.next;
+      }
+    }
+  }
+};
+
+LinkedList.prototype.toString = function() {
   var arrayRepresentation = [],
-      pointer = this.head;
+      cursor = this.head;
 
-  while (pointer !== null) {
-    arrayRepresentation.push(pointer.val);
-    pointer = pointer.next;
+  while (cursor !== null) {
+    arrayRepresentation.push(cursor.val);
+    cursor = cursor.next;
   }
 
   return arrayRepresentation;
-}
-
-
+};
 
 module.exports = LinkedList;

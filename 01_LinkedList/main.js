@@ -23,4 +23,16 @@ console.log(linkedList.length);
 linkedList.insert('4').insert(5);
 console.log(linkedList.toString());
 console.log(linkedList.length);
-console.log(linkedList.head);
+
+
+linkedList.remove('b');
+console.log(linkedList.toString());
+console.log(linkedList.length);
+
+linkedList.remove('1');
+console.log(linkedList.toString());
+console.log(linkedList.length);
+
+linkedList.remove(5);
+console.log(linkedList.toString());
+console.log(linkedList.length);
